@@ -3,129 +3,1001 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>allrwelcome.net - Coming Soon</title>
+    <title>allrwelcome.net - Whoever You Are, Is the Best</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --soft-blue: #B3D9FF;
+            --soft-lavender: #C8B8E8;
+            --soft-mint: #B8E8D0;
+            --soft-peach: #FFD4B8;
+            --soft-yellow: #FFF3B8;
+            --soft-rose: #E8B8D0;
+            --dark-text: #3A3A5C;
+            --light-text: #5C5C8A;
+            --white: #FEFEFF;
+        }
+
         body {
-            min-height: 100vh;
+            font-family: 'Nunito', 'Segoe UI', sans-serif;
+            background: var(--white);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #E8E0FF, #D4F0FF);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(180, 160, 220, 0.2);
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark-text);
+        }
+
+        .nav-logo span {
+            color: #8B6CC1;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--dark-text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: rgba(139, 108, 193, 0.2);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--dark-text);
+            border-radius: 3px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #E8E0FF 0%, #D4F0FF 50%, #D4FFE8 100%);
+            min-height: 90vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #e8eaf6;
-            color: #1a237e;
-        }
-
-        .container {
             text-align: center;
-            padding: 2rem;
-            max-width: 600px;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
         }
 
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #1a237e;
-            letter-spacing: 0.05em;
+        .floating-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
         }
 
-        .logo span {
-            color: #3f51b5;
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 8s ease-in-out infinite;
         }
 
-        .coming-soon {
-            font-size: 1.5rem;
-            font-weight: 300;
-            color: #283593;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 0.3em;
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            background: var(--soft-lavender);
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
         }
 
-        .description {
-            font-size: 1rem;
-            color: #3949ab;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-        }
-
-        .divider {
+        .shape:nth-child(2) {
             width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, #b3e5fc, #7986cb);
-            margin: 1.5rem auto;
-            border-radius: 2px;
+            height: 60px;
+            background: var(--soft-mint);
+            top: 20%;
+            right: 10%;
+            animation-delay: 2s;
         }
 
-        .social-links {
+        .shape:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            background: var(--soft-peach);
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 4s;
+        }
+
+        .shape:nth-child(4) {
+            width: 50px;
+            height: 50px;
+            background: var(--soft-yellow);
+            bottom: 30%;
+            right: 20%;
+            animation-delay: 1s;
+        }
+
+        .shape:nth-child(5) {
+            width: 70px;
+            height: 70px;
+            background: var(--soft-rose);
+            top: 50%;
+            left: 50%;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--dark-text);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(90deg, #8B6CC1, #5C9AAF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .motto {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #8B6CC1;
+            margin: 1.5rem 0;
+            font-style: italic;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--light-text);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #8B6CC1, #A78BDA);
+            color: white;
+            box-shadow: 0 4px 15px rgba(139, 108, 193, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(139, 108, 193, 0.5);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #8B6CC1;
+            border: 2px solid #8B6CC1;
+        }
+
+        .btn-secondary:hover {
+            background: #8B6CC1;
+            color: white;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            text-align: center;
+            color: var(--light-text);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(180deg, #FEFEFF, #F0E8FF);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .about-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(180, 160, 220, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #8B6CC1;
+        }
+
+        .about-card p {
+            color: var(--light-text);
+        }
+
+        /* Resources Section */
+        .resources {
+            background: linear-gradient(180deg, #F0E8FF, #E8F8FF);
+        }
+
+        .resource-tabs {
             display: flex;
             justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .resource-tab {
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #8B6CC1;
+            background: white;
+            color: #8B6CC1;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .resource-tab.active, .resource-tab:hover {
+            background: #8B6CC1;
+            color: white;
+        }
+
+        .resource-content {
+            display: none;
+        }
+
+        .resource-content.active {
+            display: block;
+        }
+
+        .skill-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(180, 160, 220, 0.15);
+            border-left: 5px solid #8B6CC1;
+        }
+
+        .skill-card h3 {
+            font-size: 1.4rem;
+            color: #8B6CC1;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-card .acronym,
+        .skill-card .acronym-text {
+            font-size: 0.9rem;
+            color: #A78BDA;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .skill-card p {
+            color: var(--light-text);
+            margin-bottom: 1rem;
+        }
+
+        .skill-steps {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-steps li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--light-text);
+        }
+
+        .skill-steps li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: #8B6CC1;
+        }
+
+        /* Box Breathing Interactive */
+        .breathing-container {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .breathing-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--soft-lavender), var(--soft-blue));
+            margin: 2rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            animation: breathe 16s ease-in-out infinite;
+            box-shadow: 0 0 40px rgba(180, 160, 220, 0.3);
+        }
+
+        @keyframes breathe {
+            0%, 100% { 
+                transform: scale(1); 
+                background: linear-gradient(135deg, #B8E8D0, #B3D9FF);
+            }
+            25% { 
+                transform: scale(1.4); 
+                background: linear-gradient(135deg, #C8B8E8, #B8E8D0);
+            }
+            50% { 
+                transform: scale(1.4); 
+                background: linear-gradient(135deg, #FFD4B8, #C8B8E8);
+            }
+            75% { 
+                transform: scale(1); 
+                background: linear-gradient(135deg, #B3D9FF, #FFD4B8);
+            }
+        }
+
+        .breathing-instruction {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #8B6CC1;
+            margin-top: 1rem;
+        }
+
+        /* Donation Section */
+        .donation {
+            background: linear-gradient(180deg, #E8F8FF, #FFF0E8);
+        }
+
+        .donation-tiers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
             margin-top: 2rem;
         }
 
-        .social-links a {
-            color: #3949ab;
-            text-decoration: none;
-            font-size: 0.9rem;
-            padding: 0.5rem 1rem;
-            border: 1px solid #7986cb;
-            border-radius: 25px;
-            transition: all 0.3s ease;
+        .tier-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(180, 160, 220, 0.15);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .social-links a:hover {
-            background: #7986cb;
-            color: #ffffff;
-            border-color: #7986cb;
+        .tier-card.featured {
+            border: 3px solid #8B6CC1;
         }
 
-        .footer {
-            position: fixed;
-            bottom: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.75rem;
-            color: #5c6bc0;
+        .tier-card.featured::before {
+            content: '⭐ Most Popular';
+            position: absolute;
+            top: 10px;
+            right: -30px;
+            background: #8B6CC1;
+            color: white;
+            padding: 0.2rem 2rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transform: rotate(45deg);
         }
 
-        @media (max-width: 480px) {
-            .logo {
+        .tier-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tier-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #8B6CC1;
+            margin: 0.5rem 0;
+        }
+
+        .tier-features {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .tier-features li {
+            padding: 0.4rem 0;
+            color: var(--light-text);
+        }
+
+        .tier-features li::before {
+            content: '✓ ';
+            color: var(--soft-mint);
+            font-weight: 700;
+        }
+
+        /* Safety Section */
+        .safety {
+            background: linear-gradient(180deg, #F0FFE8, #E8FFF0);
+        }
+
+        .safety-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .safety-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(180, 160, 220, 0.15);
+        }
+
+        .safety-card h3 {
+            color: #8B6CC1;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #3A3A5C, #5C5C8A);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer .footer-motto {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--soft-lavender);
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #E8E0FF, #D4F0FF);
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .motto {
+                font-size: 1.4rem;
+            }
+
+            .section-title {
                 font-size: 1.8rem;
             }
 
-            .coming-soon {
-                font-size: 1.1rem;
-                letter-spacing: 0.2em;
-            }
-
-            .description {
-                font-size: 0.9rem;
+            .breathing-circle {
+                width: 150px;
+                height: 150px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">allrwelcome<span>.net</span></div>
-        <div class="coming-soon">Coming Soon</div>
-        <div class="divider"></div>
-        <p class="description">
-            Something amazing is on the way. We are working hard to bring you a great experience.<br>
-            Check back soon!
-        </p>
-        <div class="social-links">
-            <a href="mailto:contact@allrwelcome.net">Contact Us</a>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-logo">allrwelcome<span>.net</span></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#donate">Donate</a></li>
+            <li><a href="#safety">Safety</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-    </div>
-    <div class="footer">
-        &copy; 2026 allrwelcome.net. All rights reserved.
-    </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Welcome to<br><span class="highlight">allrwelcome.net</span></h1>
+            <p class="motto">"Whoever you are, is the best."</p>
+            <p>A safe, supportive community for kids ages 5-18 with PTSD, ADHD, autism, and other mental health challenges. You belong here.</p>
+            <div class="hero-buttons">
+                <a href="#resources" class="btn btn-primary">Explore Resources</a>
+                <a href="#donate" class="btn btn-secondary">Support Us ($1-$10)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title">Why We're Here 💜</h2>
+        <p class="section-subtitle">Everyone deserves a safe space to be themselves. Our platform helps kids thrive exactly as they are.</p>
+        <div class="about-grid">
+            <div class="about-card">
+                <div class="icon">🧠</div>
+                <h3>For Every Mind</h3>
+                <p>Resources built for ADHD, autism, PTSD, anxiety, and all kinds of wonderful brains.</p>
+            </div>
+            <div class="about-card">
+                <div class="icon">🤗</div>
+                <h3>Safe & Supported</h3>
+                <p>Moderated community with parent oversight and safety tools to keep kids protected.</p>
+            </div>
+            <div class="about-card">
+                <div class="icon">💪</div>
+                <h3>Real Skills</h3>
+                <p>DBT skills, breathing exercises, grounding techniques — all explained in kid-friendly ways.</p>
+            </div>
+            <div class="about-card">
+                <div class="icon">🌈</div>
+                <h3>Pay What You Can</h3>
+                <p>$1 to $10, or free. Everyone gets access to what they need — no one turned away.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources" id="resources">
+        <h2 class="section-title">Your Coping Toolkit 🛠️</h2>
+        <p class="section-subtitle">Evidence-based skills explained in ways that make sense. Pick what works for you.</p>
+
+        <div class="resource-tabs">
+            <button class="resource-tab active" data-tab="dbt">DBT Skills</button>
+            <button class="resource-tab" data-tab="breathing">Box Breathing</button>
+            <button class="resource-tab" data-tab="grounding">Grounding</button>
+            <button class="resource-tab" data-tab="relaxation">Relaxation</button>
+        </div>
+
+        <!-- DBT Skills -->
+        <div class="resource-content active" id="dbt">
+            <div class="skill-card">
+                <h3>🗣️ DEAR MAN Skill</h3>
+                <p class="acronym-text">D.E.A.R. M.A.N. — How to get what you need while respecting yourself and others.</p>
+                <p>Use this when you need to stand up for yourself or ask someone for something important.</p>
+                <ul class="skill-steps">
+                    <li><strong>D</strong>escribe — Say the facts: "The homework is due tomorrow"</li>
+                    <li><strong>E</strong>xpress — Share your feelings: "I feel confused about this"</li>
+                    <li><strong>A</strong>ssert — Ask clearly: "Can you explain it again?"</li>
+                    <li><strong>R</strong>einforce — Explain why it helps them: "It would help me get a better grade"</li>
+                    <li><strong>M</strong>indful — Stay focused, don't get distracted</li>
+                    <li><strong>A</strong>ppear Confident — Use your body language</li>
+                    <li><strong>N</strong>egotiate — Be ready to find a compromise</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>⚡ TIP Skill</h3>
+                <p class="acronym-text">T.I.P. — Quick ways to calm your body during intense emotions.</p>
+                <p>When feelings are too big, use your body to help calm your mind.</p>
+                <ul class="skill-steps">
+                    <li><strong>T</strong>emperature — Hold something cold (ice cube, cold water on face)</li>
+                    <li><strong>I</strong>ntense Exercise — Do burst of activity for a few minutes</li>
+                    <li><strong>P</strong>aced Breathing — Breathe slower than usual</li>
+                    <li><strong>P</strong>aired Muscle Relaxation — Tense and relax muscles while breathing</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>🛑 STOP Skill</h3>
+                <p class="acronym-text">S.T.O.P. — Pause before reacting when things feel overwhelming.</p>
+                <ul class="skill-steps">
+                    <li><strong>S</strong>top — Freeze. Don't move or speak yet.</li>
+                    <li><strong>T</strong>ake a breath — Breathe slowly and deeply.</li>
+                    <li><strong>O</strong>bserve — What's happening inside you and around you?</li>
+                    <li><strong>P</strong>roceed — Do something mindful and helpful.</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>🌸 GENTLE Skills</h3>
+                <p class="acronym-text">Be kind to yourself during hard times.</p>
+                <ul class="skill-steps">
+                    <li>Don't judge yourself harshly</li>
+                    <li>Help in small ways you can manage</li>
+                    <li>Express feelings with loving kindness</li>
+                    <li>One thing at a time</li>
+                    <li>Explore what your emotions want to teach you</li>
+                    <li>Be curious, not sure you're right</li>
+                    <li>Empathize with yourself first</li>
+                    <li>Share the load with others</li>
+                    <li>Walk in each other's shoes</li>
+                    <li>Leave room for forgiving yourself</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Box Breathing -->
+        <div class="resource-content" id="breathing">
+            <div class="breathing-container">
+                <h3 style="color: #8B6CC1; font-size: 1.5rem; margin-bottom: 1rem;">🫁 Box Breathing Exercise</h3>
+                <p style="color: var(--light-text); margin-bottom: 2rem;">Breathe with the circle. It helps calm your body and mind when you feel overwhelmed.</p>
+                <div class="breathing-circle" id="breathingCircle">
+                    Breathe With Me
+                </div>
+                <p class="breathing-instruction" id="breathingInstruction">Follow the circle...</p>
+                <div style="margin-top: 2rem;">
+                    <p style="color: var(--light-text);">
+                        <strong>How it works:</strong> Breathe in for 4 counts, hold for 4, breathe out for 4, hold for 4. Repeat!
+                    </p>
+                    <button class="btn btn-primary" onclick="startBreathing()" style="margin-top: 1rem;">Start Guided Breathing</button>
+                    <button class="btn btn-secondary" onclick="stopBreathing()">Stop</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grounding -->
+        <div class="resource-content" id="grounding">
+            <div class="skill-card">
+                <h3>🌍 5-4-3-2-1 Grounding</h3>
+                <p class="acronym-text">Bring yourself to the present moment using your senses.</p>
+                <ul class="skill-steps">
+                    <li><strong>5 things you can SEE</strong> — Look around and name 5 things</li>
+                    <li><strong>4 things you can TOUCH</strong> — Feel 4 things around you</li>
+                    <li><strong>3 things you can HEAR</strong> — Listen for 3 sounds</li>
+                    <li><strong>2 things you can SMELL</strong> — Notice 2 smells</li>
+                    <li><strong>1 thing you can TASTE</strong> — Focus on 1 taste</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>🧊 Safe Ice T.I.P.</h3>
+                <p>When emotions are extremely intense, use cold to quickly calm your body's stress response.</p>
+                <ul class="skill-steps">
+                    <li>Hold an ice cube in your hand</li>
+                    <li>Splash cold water on your face</li>
+                    <li>Put cold water on your wrists</li>
+                    <li><strong>Remember:</strong> This only works while you're doing it!</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Relaxation -->
+        <div class="resource-content" id="relaxation">
+            <div class="skill-card">
+                <h3>💆 Progressive Muscle Relaxation</h3>
+                <p>Tense and relax each muscle group, starting from your toes and working up to your head.</p>
+                <ul class="skill-steps">
+                    <li>Start at your toes — scrunch them tight for 5 seconds, then relax</li>
+                    <li>Move to your calves — tense, hold, release</li>
+                    <li>Work up through your legs, stomach, arms, shoulders, and face</li>
+                    <li>Notice the difference between tense and relaxed</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>🌈 Safe Place Visualization</h3>
+                <p>Imagine your safest, most comfortable place in detail.</p>
+                <ul class="skill-steps">
+                    <li>Close your eyes and picture your safe place</li>
+                    <li>What do you see? (colors, lights, people)</li>
+                    <li>What do you hear? (sounds, music, voices)</li>
+                    <li>What do you feel? (temperature, textures)</li>
+                    <li>What do you smell? (food, flowers, fresh air)</li>
+                    <li>Visit this place anytime you need comfort</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>🎯 Comfort Kit</h3>
+                <p>Build your own list of things that help you feel better.</p>
+                <ul class="skill-steps">
+                    <li>People I can call for support</li>
+                    <li>Activities that make me feel calm or happy</li>
+                    <li>Things I can do to feel safe in my body</li>
+                    <li>Internet sites and apps that help</li>
+                    <li>Things I can see, hear, smell, taste, and touch for comfort</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section class="donation" id="donate">
+        <h2 class="section-title">Support Our Community 💜</h2>
+        <p class="section-subtitle">Pay what you can — $1 to $10 — or just donate what you're able. Everyone deserves access.</p>
+
+        <div class="donation-tiers">
+            <div class="tier-card">
+                <div style="font-size: 2rem;">🌱</div>
+                <div class="tier-amount">$1</div>
+                <h3>Seed</h3>
+                <ul class="tier-features">
+                    <li>Basic forum access</li>
+                    <li>Community support</li>
+                    <li>Your gratitude 💜</li>
+                </ul>
+                <button class="btn btn-secondary" onclick="handleDonate('Seed', 1)">Donate $1</button>
+            </div>
+
+            <div class="tier-card">
+                <div style="font-size: 2rem;">🌻</div>
+                <div class="tier-amount">$3</div>
+                <h3>Gardener</h3>
+                <ul class="tier-features">
+                    <li>Everything in Seed</li>
+                    <li>Resource library access</li>
+                    <li>Downloadable tools</li>
+                </ul>
+                <button class="btn btn-secondary" onclick="handleDonate('Gardener', 3)">Donate $3</button>
+            </div>
+
+            <div class="tier-card featured">
+                <div style="font-size: 2rem;">🌳</div>
+                <div class="tier-amount">$5</div>
+                <h3>Forester</h3>
+                <ul class="tier-features">
+                    <li>Everything in Gardener</li>
+                    <li>Private messaging</li>
+                    <li>Group channels</li>
+                    <li>Guided exercises</li>
+                </ul>
+                <button class="btn btn-primary" onclick="handleDonate('Forester', 5)">Donate $5</button>
+            </div>
+
+            <div class="tier-card">
+                <div style="font-size: 2rem;">🏔️</div>
+                <div class="tier-amount">$10</div>
+                <h3>Mountain</h3>
+                <ul class="tier-features">
+                    <li>Everything in Forester</li>
+                    <li>One-on-one mentoring</li>
+                    <li>Priority support</li>
+                    <li>Name on our community wall</li>
+                </ul>
+                <button class="btn btn-secondary" onclick="handleDonate('Mountain', 10)">Donate $10</button>
+            </div>
+        </div>
+
+        <p style="text-align: center; margin-top: 2rem; color: var(--light-text);">
+            <strong>Can't donate? That's okay too.</strong> Everyone gets access to basic support. No one is turned away.
+        </p>
+    </section>
+
+    <!-- Safety Section -->
+    <section class="safety" id="safety">
+        <h2 class="section-title">Your Safety Comes First 🛡️</h2>
+        <p class="section-subtitle">We built extra protections because you deserve to feel safe online.</p>
+
+        <div class="safety-features">
+            <div class="safety-card">
+                <h3>👨‍👩‍👧 Parent Dashboard</h3>
+                <p>Parents and guardians can create oversight accounts to monitor their child's activity, approve connections, and review messages.</p>
+            </div>
+            <div class="safety-card">
+                <h3>🤖 Smart Content Filtering</h3>
+                <p>Automated filters block harmful language, personal information sharing, and inappropriate content before posts go live.</p>
+            </div>
+            <div class="safety-card">
+                <h3>👮 Active Moderation</h3>
+                <p>Our trained moderators review every post and message. Report any concern with one click.</p>
+            </div>
+            <div class="safety-card">
+                <h3>🔒 Privacy Protected</h3>
+                <p>No real names required. Use nicknames. We never sell your data. Parental consent required for users under 13.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p class="footer-motto">"Whoever you are, is the best."</p>
+        <p>allrwelcome.net — A safe place for kids ages 5-18 with PTSD, ADHD, autism, and more.</p>
+        <p style="margin-top: 1rem;">&copy; 2026 allrwelcome.net. Built with 💜 for every wonderful kid.</p>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // Resource Tabs
+        const tabs = document.querySelectorAll('.resource-tab');
+        const contents = document.querySelectorAll('.resource-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Box Breathing
+        let breathingInterval;
+        const phases = [
+            { text: 'Breathe In...', duration: 4000 },
+            { text: 'Hold...', duration: 4000 },
+            { text: 'Breathe Out...', duration: 4000 },
+            { text: 'Hold...', duration: 4000 }
+        ];
+
+        let currentPhase = 0;
+        let phaseTimeout;
+
+        function updateBreathingCircle() {
+            const circle = document.getElementById('breathingCircle');
+            const instruction = document.getElementById('breathingInstruction');
+            const phase = phases[currentPhase];
+
+            circle.textContent = phase.text;
+            instruction.textContent = phase.text;
+
+            currentPhase = (currentPhase + 1) % phases.length;
+            phaseTimeout = setTimeout(updateBreathingCircle, phase.duration);
+        }
+
+        function startBreathing() {
+            currentPhase = 0;
+            updateBreathingCircle();
+        }
+
+        function stopBreathing() {
+            clearTimeout(phaseTimeout);
+            const circle = document.getElementById('breathingCircle');
+            const instruction = document.getElementById('breathingInstruction');
+            circle.textContent = 'Breathe With Me';
+            instruction.textContent = 'Follow the circle...';
+        }
+
+        // Donation Handler
+        function handleDonate(tierName, amount) {
+            // In production, this would integrate with Stripe/PayPal
+            const message = `Thank you for your $${amount} ${tierName} donation! 💜\n\nIn production, this will connect to Stripe or PayPal payment.\n\nYour support helps keep allrwelcome.net free for kids who need it.`;
+            alert(message);
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
