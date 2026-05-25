@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>allrwelcome.net - Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #e8eaf6;
+            color: #1a237e;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 600px;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1a237e;
+            letter-spacing: 0.05em;
+        }
+
+        .logo span {
+            color: #3f51b5;
+        }
+
+        .coming-soon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #283593;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+        }
+
+        .description {
+            font-size: 1rem;
+            color: #3949ab;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #b3e5fc, #7986cb);
+            margin: 1.5rem auto;
+            border-radius: 2px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: #3949ab;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid #7986cb;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #7986cb;
+            color: #ffffff;
+            border-color: #7986cb;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem;
+            color: #5c6bc0;
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .coming-soon {
+                font-size: 1.1rem;
+                letter-spacing: 0.2em;
+            }
+
+            .description {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">allrwelcome<span>.net</span></div>
+        <div class="coming-soon">Coming Soon</div>
+        <div class="divider"></div>
+        <p class="description">
+            Something amazing is on the way. We are working hard to bring you a great experience.<br>
+            Check back soon!
+        </p>
+        <div class="social-links">
+            <a href="mailto:contact@allrwelcome.net">Contact Us</a>
+        </div>
+    </div>
+    <div class="footer">
+        &copy; 2026 allrwelcome.net. All rights reserved.
+    </div>
+</body>
+</html>
